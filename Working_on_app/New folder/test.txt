@@ -1,0 +1,5 @@
+### BEGIN echo "Hello Hasan" ###
+
+Hello Hasan
+### END echo "Hello Hasan" ###
+
