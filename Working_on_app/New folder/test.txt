@@ -1,5 +1,14 @@
-### BEGIN echo "Hello Hasan" ###
+### BEGIN ls ###
 
-Hello Hasan
-### END echo "Hello Hasan" ###
+Desktop
+Documents
+Downloads
+Music
+Pictures
+Public
+Templates
+Videos
+### END ls ###
+
+
 
