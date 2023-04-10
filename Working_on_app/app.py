@@ -41,17 +41,17 @@ def main():
     #Create the password prompt
     #thePass = getpass(prompt="Please enter your SSH password: ")
  
-    # Host information
-    # host = h
-    # port = p
-    # username = u
-    # password = ppp
+    #Host information
+    host = h
+    port = p
+    username = u
+    password = ppp
 
 
-    host = "192.168.74.130"
-    port = 22
-    username = "kali"
-    password = "kali"
+    # host = "192.168.74.130"
+    # port = 22
+    # username = "kali"
+    # password = "kali"
     try:
 
 

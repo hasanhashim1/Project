@@ -41,17 +41,17 @@ def main():
     #Create the password prompt
     #thePass = getpass(prompt="Please enter your SSH password: ")
  
-    # Host information
-    # host = h
-    # port = p
-    # username = u
-    # password = ppp
+    #Host information
+    host = h
+    port = p
+    username = u
+    password = ppp
 
 
-    host = "192.168.229.132"
-    port = 22
-    username = "kali"
-    password = "kali"
+    # host = "192.168.74.130"
+    # port = 22
+    # username = "kali"
+    # password = "kali"
     try:
 
 
@@ -73,6 +73,32 @@ def main():
                 top.geometry("400x400")     
                 cmd = Entry(top, width=50)
                 cmd.pack()
+                def text4shell():
+
+                    command = ['cd /home/kali/cve-2022-42889-text4shell-docker | docker build --tag=text4shell .','docker run -p 80:8080 text4shell']
+                    
+                    for eachCMD in command:
+                        # Get the output from the command
+                        stdin, stdout, stderr = ssh.exec_command(eachCMD)
+
+                        # Get results from stdout
+                        lines = stdout.readlines()
+                        #print(lines)
+
+                        # Convert the lsiti to a string
+                        output = ''.join(lines)
+
+                        # Header
+                        sepHeader = '' + '### BEGIN ' + eachCMD + ' ###\n\n'
+
+                        # Footer
+                        sepFooter = '' + '### END ' + eachCMD + ' ###\n\n'
+
+                        # Concatenate the header, output, and footer
+                        cmd_output = sepHeader + output + sepFooter
+
+                        
+
                 def send_cmd():
                     hello = cmd.get()
                     command = [hello]
@@ -96,7 +122,7 @@ def main():
 
                         # Concatenate the header, output, and footer
                         cmd_output = sepHeader + output + sepFooter
-
+                        print(cmd_output)
                         # Save the cmd_output to a file
                         # with open(file, 'a') as f:
                         #     f.write(cmd_output)
@@ -107,8 +133,11 @@ def main():
                         btn = Button(top, text = 'Save', command = lambda : save())
                         btn.pack(side = TOP, pady = 20)
 
+                
+                 
                 myButton = Button(top, text="Enter a command", command=send_cmd)
                 myButton.pack()
+                Button(top, text="Text4Shell", command=text4shell,).pack()
                 def ssh_close():
                      ssh.close()
                 ssh_close=Button(top, text="close ssh conncetino", command= ssh_close).pack()
@@ -152,22 +181,5 @@ def main():
 Button(root, text="Submit", command=main,).pack()
 
 
+
 root.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
